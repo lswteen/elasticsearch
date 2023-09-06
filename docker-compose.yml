@@ -1,0 +1,80 @@
+version: '3.6'
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.1
+    container_name: es01
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es02
+      - cluster.initial_master_nodes=es01,es02
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.1
+    container_name: es02
+    environment:
+      - node.name=es02
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01
+      - cluster.initial_master_nodes=es01,es02
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data02:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.9.1
+    container_name: kibana
+    ports:
+      - 5601:5601
+    environment:
+      - ELASTICSEARCH_HOSTS=["http://es01:9200"]
+    depends_on:
+      - es01
+    networks:
+      - elastic
+    
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+networks:
+  elastic:
+    driver: bridge
+
+logstash:
+    image: docker.elastic.co/logstash/logstash:8.9.1
+    container_name: logstash
+    ports:
+      - 5000:5000
+      - 9600:9600
+    environment:
+      - node.name=logstash
+      - xpack.monitoring.enabled=false
+      - xpack.monitoring.elasticsearch.hosts=["http://es01:9200"]
+      - "LS_JAVA_OPTS=-Xms1g -Xmx1g"
+    volumes:
+      - ./logstash/curl_test.conf:/usr/share/logstash/pipeline/curl_test.conf
+    depends_on:
+      - es01
+    networks:
+      - elastic
