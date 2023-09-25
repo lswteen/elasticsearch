@@ -1,0 +1,8 @@
+rootProject.name = 'example'
+include 'api'
+include 'core'
+findProject(':core')?.name = 'product-core'
+include 'domain'
+findProject(':domain')?.name = 'product-domain'
+include 'contract'
+findProject(':contract')?.name = 'product-contract'
