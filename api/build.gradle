@@ -16,12 +16,11 @@ configurations {
 }
 
 dependencies {
-    implementation project(":product-contract")
+    implementation project(":pick-contract")
 
     // spring
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // mapstruct
     implementation "org.mapstruct:mapstruct:$mapstructVersion"
