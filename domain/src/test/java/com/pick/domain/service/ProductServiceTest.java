@@ -35,6 +35,7 @@ class ProductServiceTest {
     @Test
     void findByProducts() {
         List<ProductEntity> results =  productRepository.findAll();
+        //기존에 domain 모듈 > resources > sql/data.sql 19개 insert 에서 1개 추가 되면서 20개
         Assertions.assertThat(results.size()).isEqualTo(20);
     }
 

@@ -25,9 +25,6 @@ pw : jk1234
 
 ```
 
-
-
-
 ## Elasticsearch
 http://localhost:9200/
 ![img_1.png](img_1.png)
@@ -35,3 +32,100 @@ http://localhost:9200/
 ## Kibana
 http://localhost:5601/app/home#/
 ![img_2.png](img_2.png)
+
+
+## elastic Devtool Console
+```sql
+# Click the Variables button, above, to create your own variables.
+GET ${exampleVariable1} // _search
+{
+  "query": {
+    "${exampleVariable2}": {} // match_all
+  }
+}
+
+
+GET .kibana_task_manager_8.9.1_001
+{
+  "query":{
+    "match_all" : {}
+  }
+}
+
+
+
+POST _analyze
+{
+  "tokenizer": "nori_tokenizer",
+  "text": "대한민국은 민주공화국이다."
+}
+
+
+PUT /product_index
+{
+  "mappings": {
+    "properties": {
+      "productId": {
+        "type": "long"
+      },
+      "name": {
+        "type": "text"
+      },
+      "price": {
+        "type": "double"
+      }
+    }
+  }
+}
+
+
+POST /product_index/_bulk
+{ "index": {} }
+{ "productId": 1, "name": "Product 1", "price": 19.99 }
+{ "index": {} }
+{ "productId": 2, "name": "Product 2", "price": 29.99 }
+{ "index": {} }
+{ "productId": 3, "name": "Product 3", "price": 39.99 }
+{ "index": {} }
+{ "productId": 4, "name": "Product 4", "price": 49.99 }
+{ "index": {} }
+{ "productId": 5, "name": "Product 5", "price": 59.99 }
+{ "index": {} }
+{ "productId": 6, "name": "Product 6", "price": 69.99 }
+{ "index": {} }
+{ "productId": 7, "name": "Product 7", "price": 79.99 }
+{ "index": {} }
+{ "productId": 8, "name": "Product 8", "price": 89.99 }
+{ "index": {} }
+{ "productId": 9, "name": "Product 9", "price": 99.99 }
+{ "index": {} }
+{ "productId": 10, "name": "Product 10", "price": 109.99 }
+
+GET /product_index/_search
+
+
+GET /product_index/_search
+{
+  "query": {
+    "match": {
+      "name": "Product 1"
+    }
+  }
+}
+
+GET /product_index/_search
+{
+  "query": {
+    "term": {
+      "productId": 2
+    }
+  }
+}
+
+DELETE /product_index
+
+
+
+
+
+```
