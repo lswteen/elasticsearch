@@ -1,4 +1,4 @@
-package com.pick.domain.entity;
+package com.pick.domain.document;
 
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 @ToString
 @Getter
 @Document(indexName = "product_index")
-public class ProductDocumentEntity {
+public class ProductDocument {
     @Id
     private Long productId;
     private String name;
