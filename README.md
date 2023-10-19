@@ -4,6 +4,7 @@
 
 ## 참고링크
 https://ksb-dev.tistory.com/324
+https://ksb-dev.tistory.com/320
 
 # 분석 마인드맵
 
@@ -27,7 +28,6 @@ Springboot Data 버전이 최신버전을 따라가기에 제공되는 버전이
 Upgrade to Elasticsearch 8.7.0
 Allow specification of the TLS certificate when connecting to an Elasticsearch 8 cluster
 ```
-
 
 ## 선행조건 
 - Rancher Desktop docker 설치
