@@ -1,12 +1,13 @@
-# With Springboot Elasticsearch Client 
-- Springboot to Logstash
-- Springboot for Elasticsearch Client
+# With Springboot Elasticsearch Client
+1. docker-elk  : https://github.com/lswteen/docker-elk
+2. elasticsearch client  : https://github.com/lswteen/elasticsearch
+3. elasticsearch Setting : 한글 형태소 분석기 nori 및 String tokennizer 설정
+4. master, data node 구성 
 
-## 참고링크
-https://ksb-dev.tistory.com/324
-https://ksb-dev.tistory.com/320
 
 # 분석 마인드맵
+ELK스택 설치 및 Springboot를 이용한 Elasticsearch 데이터 파이프라인 구축
+및 클라이언트 검색 호출
 
 ![img.png](img.png)
 ```text
@@ -14,6 +15,10 @@ https://www.knotend.com/g/a#N4IgzgpgTglghgGxgLwnARgiAxA9lAWxAC5QA7XAEwjBPIHYAWAD
 ```
 
 # ELK 설치
+## 재설치시 문제 발생 
+docker-compose 이용하여 ELK docker-elk 설치하게될경우 Docker에서 할당된 Volume이 남아있을경우 정상적으로 설치되지 않기에 
+필수적으로 Elasticsearch에서 할당된 volume를 삭제해야합니다.
+
 
 ## ELK docker-compose 설치 방법
 Elasticsearch Version 호환 문제 (Springboot 에서 제공하는 Springboot Data 에서는 현재 8.7.0 까지 제공)
@@ -153,3 +158,8 @@ DELETE /product_index
 
 
 ```
+
+
+## 참고링크
+https://ksb-dev.tistory.com/324
+https://ksb-dev.tistory.com/320
