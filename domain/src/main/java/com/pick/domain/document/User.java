@@ -11,7 +11,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 
 @Document(indexName = "users")
-@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

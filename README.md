@@ -19,7 +19,6 @@ https://www.knotend.com/g/a#N4IgzgpgTglghgGxgLwnARgiAxA9lAWxAC5QA7XAEwjBPIHYAWAD
 docker-compose 이용하여 ELK docker-elk 설치하게될경우 Docker에서 할당된 Volume이 남아있을경우 정상적으로 설치되지 않기에 
 필수적으로 Elasticsearch에서 할당된 volume를 삭제해야합니다.
 
-
 ## ELK docker-compose 설치 방법
 Elasticsearch Version 호환 문제 (Springboot 에서 제공하는 Springboot Data 에서는 현재 8.7.0 까지 제공)
 Link : https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#new-features.5-1-0
@@ -27,8 +26,9 @@ Link : https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/h
 ### Springboot Data Elasticsearch 5.1 라이브러리 
 설명처럼 8.7.0 까지 
 Elasticsearch Query 호출시 Low Level로 호출하는 Http Client 방식과 
-Low Level을 기반으로 Rest High Level Client 방식이 있는데 Elasticsearch 버전변경으로 Syntax기능이 변경되기때문에
+Low Level을 기반으로 Rest High Level Client 방식이 있는데 Elasticsearch 버전변경으로 Syntax기능이 변경되기 때문에
 Springboot Data 버전이 최신버전을 따라가기에 제공되는 버전이 상이 할수 있음.
+
 ```text
 Upgrade to Elasticsearch 8.7.0
 Allow specification of the TLS certificate when connecting to an Elasticsearch 8 cluster
