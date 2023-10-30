@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: elasticsearch-api-application
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    displayRequestDuration: true
+    operationsSorter: method
+    apisSorter: alpha
+  default-produces-media-type: application/json

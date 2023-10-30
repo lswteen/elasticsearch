@@ -1,16 +1,18 @@
 package com.pick.product.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ProductRequest {
     private Long productId;
     private String name;
     private Double price;
+
+    @Builder
+    public ProductRequest(Long productId, String name, Double price) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+    }
 }

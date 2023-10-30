@@ -1,32 +1,29 @@
 package com.pick.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.Comment;
 
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name="product")
 public class ProductEntity {
+
     @Id
     @Column(name="product_id")
+    @Comment("상품 ID")
     private Long productId;
 
+    @Comment("상품명")
     private String name;
 
+    @Comment("상품가격")
     private Double price;
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-//    private StockEntity stockEntity;
 
     public ProductEntity(Long productId, String name, Double price) {
         this.productId = productId;
         this.name = name;
         this.price = price;
-//        this.stockEntity = stockEntity;
     }
 }

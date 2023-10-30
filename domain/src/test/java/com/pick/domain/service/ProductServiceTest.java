@@ -1,7 +1,6 @@
 package com.pick.domain.service;
 
 import com.pick.domain.entity.ProductEntity;
-import com.pick.domain.repository.ProductDocumentRepository;
 import com.pick.domain.repository.ProductRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

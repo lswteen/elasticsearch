@@ -34,7 +34,7 @@ spring:
       # "possibly consider using a shorter maxLifeTime value"오류가 발생되면 이 값을 DB의 대기(MySQL의 경우 wait_timeout(default: 28_800/8h)) 시간보다 2~3초 짧게 잡으면 됨
   sql:
     init:
-      data-locations: classpath:sql/data.sql
+      data-locations: classpath:data.sql
   h2:
     console:
       enabled: true
@@ -42,11 +42,4 @@ spring:
   mvc:
     static-path-pattern: /static/**
 
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          elasticsearch:
-            client:
-              WIRE: TRACE
+
