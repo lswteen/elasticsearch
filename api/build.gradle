@@ -37,7 +37,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
@@ -47,6 +47,10 @@ dependencies {
 bootJar {
     archiveFileName = "api.${archiveExtension.get()}"
     enabled = true
+}
+
+jar {
+    enabled = false
 }
 
 test {

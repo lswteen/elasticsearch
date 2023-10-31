@@ -1,11 +1,15 @@
 spring:
   application:
     name: elasticsearch-api-application
+  devtools:
+    livereload:
+      enabled: false
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
+    path: /pick/swagger-ui.html
     displayRequestDuration: true
     operationsSorter: method
     apisSorter: alpha
   default-produces-media-type: application/json
+

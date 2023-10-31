@@ -27,6 +27,18 @@ subprojects {
 
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter-web'
+
+		// json
+		implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
+
+		// spring boot dev tools
+		developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+		// spring boot test
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+		// Apache Commons Lang
+		implementation 'org.apache.commons:commons-lang3:3.12.0'
 	}
 
 	test {

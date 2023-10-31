@@ -6,7 +6,7 @@ import org.hibernate.annotations.Comment;
 
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Entity(name="product")
 public class ProductEntity {
 
