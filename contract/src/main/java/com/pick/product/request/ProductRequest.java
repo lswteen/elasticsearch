@@ -3,7 +3,9 @@ package com.pick.product.request;
 import lombok.*;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"productId"})
 public class ProductRequest {
     private Long productId;
     private String name;

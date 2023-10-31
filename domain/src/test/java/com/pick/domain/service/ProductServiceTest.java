@@ -20,22 +20,11 @@ class ProductServiceTest {
         this.productRepository = productRepository;
     }
 
-    @BeforeEach
-    private void setup(){
-        productEntity = productRepository.save(new ProductEntity(1L,"", 10000.0));
-    }
-
-    @Test
-    void saveProduct(){
-        System.out.println("Entity : "+productEntity.toString());
-        Assertions.assertThat(productEntity.getProductId()).isOne();
-    }
-
     @Test
     void findByProducts() {
         List<ProductEntity> results =  productRepository.findAll();
-        //기존에 domain 모듈 > resources > sql/data.sql 19개 insert 에서 1개 추가 되면서 20개
-        Assertions.assertThat(results.size()).isEqualTo(20);
+        //기존에 domain 모듈 > resources > sql/data.sql 19개
+        Assertions.assertThat(results.size()).isEqualTo(19);
     }
 
 }

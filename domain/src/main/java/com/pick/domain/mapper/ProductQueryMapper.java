@@ -13,5 +13,5 @@ public interface ProductQueryMapper {
     ProductQueryMapper INSTANCE = Mappers.getMapper(ProductQueryMapper.class);
     List<ProductResponse> toProducts(List<ProductEntity> productEntityList);
     ProductResponse toResponse(ProductEntity productEntity);
-    ProductEntity toRequest(ProductRequest productRequest);
+    ProductEntity toEntity(ProductRequest productRequest);
 }

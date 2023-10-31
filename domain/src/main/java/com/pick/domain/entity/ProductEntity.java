@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
 
+@Entity(name = "product")
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@Entity(name="product")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ProductEntity {
-
     @Id
     @Column(name="product_id")
     @Comment("상품 ID")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
 
     @Comment("상품명")

@@ -17,7 +17,6 @@ spring:
         default-page-size: 10
         max-page-size: 50
   datasource:
-    #    jdbc-url: jdbc:h2:mem:test-h2-db;MODE=MySQL;
     jdbc-url: jdbc:h2:~/h2db/elasticsearch;AUTO_SERVER=true
     driver-class-name: org.h2.Driver
     hikari:

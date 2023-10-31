@@ -22,8 +22,8 @@ public class ProductService {
 
     @Transactional
     public ProductResponse saveProduct(ProductRequest productRequest){
-        ProductEntity productEntity= productRepository.save(queryMapper.toRequest(productRequest));
-        return queryMapper.toResponse(productEntity);
+        ProductEntity entity = queryMapper.toEntity(productRequest);
+        return queryMapper.toResponse(productRepository.save(entity));
     }
 
     @Transactional(readOnly = true)
