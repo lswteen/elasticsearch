@@ -6,6 +6,9 @@ dependencies {
     implementation project(":pick-contract")
     implementation project(':pick-core')
 
+    // Spring Data Elasticsearch
+    implementation 'org.springframework.data:spring-data-elasticsearch:5.0.0' // Elasticsearch 8.x에 맞는 버전
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'com.h2database:h2'
@@ -22,6 +25,8 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    testImplementation 'org.mockito:mockito-core:4.5.1' // Mockito 버전은 최신 버전으로 조정 가능
 }
 
 bootJar {
